@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://codepen.io/gymratpacks/pen/VKzBEp#0">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="style.css">    
+    <title>Formulari</title>
+</head>
+
+<body>
+    <form action="labs.inspedralbes.cat/form.php">
+        <h1> Formulari </h1>
+        <fieldset>
+            <legend><span class="number">1</span> Dades Personales</legend>
+            <label>Nom:<input type="text"> </label>
+            <label>Cognom:<input type="text"></label>
+            <p>Data Naixament:<input type="date" id="edat" onchange="getEdad()"> <span ><b> Edat:</b> <span
+                        id="resultEdat"></span></span></p>
+        </fieldset>
+
+        <fieldset>
+            <legend><span class="number">2</span>Informació</legend>
+            <div id="cabell">
+                <p>Escull el color de cabells</p>
+                <input type="radio" id="Negre" name="cabell" value="Negre"><label for="Negre" class="light">Negre</label> <br>
+                <input type="radio" id="Blanc" name="cabell" value="Blanc"><label for="Blanc" class="light">Blanc</label><br>
+                <input type="radio" id="Ros" name="cabell" value="Ros"><label for="Ros" class="light">Ros</label><br>
+                <input type="radio" id="Castany" name="cabell" value="Castany"><label for="Castany" class="light">Castany</label><br>
+                <input type="radio" id="Taronja" name="cabell" value="Taronja"><label for="Taronja" class="light">Taronja</label>
+            </div>
+            <br>
+            <label>Escull les assignatures</label>
+              <input type="checkbox" id="M01" name="assig" value="M01">
+              <label for="M01" class="light">M01</label><br>
+              <input type="checkbox" id="M02" name="assig" value="M02">
+              <label for="M02" class="light">M02</label><br>
+              <input type="checkbox" id="M03" name="assig" value="M03">
+              <label for="M03" class="light">M03</label>
+            
+
+        </fieldset>
+        <legend><span class="number">3</span>Preu</legend>
+        <input type="number" placeholder=" &#8364;"></p>
+        <button type="submit" value="Enviar Formulari">Enviar </button>  
+    </form>
+
+    <script>
+        function getEdad() {
+            let fechaNacimiento = document.getElementById("edat").value;
+            var today = new Date();
+            var birthDate = new Date(fechaNacimiento);
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            document.getElementById("resultEdat").innerHTML=age + " anys";
+        }
+    </script>
+</body>
+
+</html>
